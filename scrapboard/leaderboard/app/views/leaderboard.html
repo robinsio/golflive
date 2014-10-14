@@ -1,0 +1,39 @@
+<div ng-if="competition.$resolved == true">
+    <h1>{{competition.name}}</h1>
+    <p>{{competition.courses[0].name}}, {{competition.date.from}}-{{competition.date.to}}</p>
+</div>
+
+<table ng-if="leaderboard.$resolved == true">
+    <thead>
+        <th>Pos</th>
+        <th>Movement</th>
+        <th>Nat</th>
+        <th>Player Name</th>
+        <th>Club</th>
+        <th>Total</th>
+        <th>Thru</th>
+        <th>Round</th>
+        <th>R1</th>
+        <th>R2</th>
+        <th>R3</th>
+        <th>R4</th>
+        <th>Strokes</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="entry in leaderboard">
+            <td>{{entry.position}}</td>
+            <td>{{entry.movement}}</td>
+            <td>{{entry.player.nationality}}</td>
+            <td>{{entry.player.first}} {{entry.player.surname}}</td>
+            <td>{{entry.player.club}}</td>
+            <td>{{entry.total}}</td>
+            <td>{{entry.thru}}</td>
+            <td>{{entry.round}}</td>
+            <td>{{entry.rounds.1}}</td>
+            <td>{{entry.rounds.2}}</td>
+            <td>{{entry.rounds.3}}</td>
+            <td>{{entry.rounds.4}}</td>
+            <td>{{entry.strokes}}</td>
+        </tr>
+    </tbody>
+</table>
